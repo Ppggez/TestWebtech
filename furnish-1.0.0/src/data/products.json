@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Modern Chair",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-1.jpg",
+    "original_price": 59,
+    "price": 29
+  },
+  {
+    "id": 2,
+    "name": "Minimalist Lamp",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-2.jpg",
+    "original_price": 45,
+    "price": 35
+  },
+  {
+    "id": 3,
+    "name": "Wooden Coffee Table",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-3.jpg",
+    "original_price": 120,
+    "price": 89
+  },
+  {
+    "id": 4,
+    "name": "Velvet Armchair",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-4.jpg",
+    "original_price": 250,
+    "price": 199
+  },
+  {
+    "id": 5,
+    "name": "Ceramic Vase",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-5.jpg",
+    "original_price": 30,
+    "price": 15
+  },
+  {
+    "id": 6,
+    "name": "Floating Shelf",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-6.jpg",
+    "original_price": 40,
+    "price": 25
+  },
+  {
+    "id": 7,
+    "name": "Dining Table Set",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-7.jpg",
+    "original_price": 600,
+    "price": 450
+  },
+  {
+    "id": 8,
+    "name": "Office Desk",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-8.jpg",
+    "original_price": 180,
+    "price": 130
+  },
+  {
+    "id": 9,
+    "name": "Leather Ottoman",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-9.jpg",
+    "original_price": 90,
+    "price": 65
+  },
+  {
+    "id": 10,
+    "name": "Standing Mirror",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-10.jpg",
+    "original_price": 110,
+    "price": 85
+  },
+  {
+    "id": 11,
+    "name": "Bistro Set",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-1.jpg",
+    "original_price": 150,
+    "price": 110
+  },
+  {
+    "id": 12,
+    "name": "Pendant Light",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-2.jpg",
+    "original_price": 75,
+    "price": 45
+  },
+  {
+    "id": 13,
+    "name": "Nightstand",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-3.jpg",
+    "original_price": 65,
+    "price": 40
+  },
+  {
+    "id": 14,
+    "name": "Bookshelf",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-4.jpg",
+    "original_price": 220,
+    "price": 175
+  },
+  {
+    "id": 15,
+    "name": "Wall Clock",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-5.jpg",
+    "original_price": 35,
+    "price": 20
+  },
+  {
+    "id": 16,
+    "name": "Bar Stool",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-6.jpg",
+    "original_price": 85,
+    "price": 55
+  },
+  {
+    "id": 17,
+    "name": "Rocking Chair",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-7.jpg",
+    "original_price": 140,
+    "price": 99
+  },
+  {
+    "id": 18,
+    "name": "Table Lamp",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-8.jpg",
+    "original_price": 50,
+    "price": 30
+  },
+  {
+    "id": 19,
+    "name": "Kitchen Cart",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-9.jpg",
+    "original_price": 130,
+    "price": 95
+  },
+  {
+    "id": 20,
+    "name": "Patio Bench",
+    "image_url": "https://themewagon.github.io/furnish/assets/images/product-img-10.jpg",
+    "original_price": 200,
+    "price": 150
+  }
+]

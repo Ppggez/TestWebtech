@@ -3,161 +3,347 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Furnish - Products</title>
+  <title>Furnish - Natural Minimalist</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <style>
-    .card-img-top {
-      height: 250px;
-      object-fit: cover;
+    /* SOFT & NATURAL STYLE */
+    * {
+      border-radius: 8px; /* เพิ่มความโค้งมนเล็กน้อยให้ดูนุ่มนวล */
+      font-size: 0.94rem;
+      border: none !important; /* กำจัดขอบทั้งหมด */
     }
+
+    body {
+      color: #333;
+      background-color: #fcfcfc; /* สีพื้นหลังขาวนวล */
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* ใช้เงาจางๆ แทนเส้นขอบ */
+      border-radius: 0 !important; /* Navbar เต็มความกว้างไม่ต้องโค้ง */
+    }
+
+    .navbar-brand {
+      font-size: 1.2rem !important;
+      letter-spacing: 2px;
+      color: #444 !important;
+    }
+
+    .nav-link {
+      font-size: 0.8rem !important;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #666 !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #000 !important;
+      background-color: #f0f0f0; /* ไฮไลท์อ่อนๆ */
+    }
+
+    /* HEADER */
+    h1.display-3 {
+      font-size: 2.2rem !important;
+      color: #222;
+    }
+
+    /* PRODUCT CARD */
     .card {
-      transition: transform 0.2s;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* เงาบางมากๆ */
     }
+
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* เงาเข้มขึ้นตอน Hover */
+    }
+
+    .card-img-top {
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0 !important; /* โค้งเฉพาะมุมบน */
+    }
+
+    .card-body h5 {
+      font-size: 0.95rem !important;
+      color: #333;
+    }
+
+    /* BUTTONS */
+    .btn {
+      font-size: 0.75rem !important;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 10px 20px;
+      transition: 0.3s;
+    }
+
+    .btn-dark {
+      background-color: #333; /* สีดำจางลงหน่อย */
+    }
+
+    .btn-dark:hover {
+      background-color: #555;
+    }
+
+    /* SIDEBAR */
+    aside .card {
+      background-color: #f9f9f9; /* สีพื้นหลัง Sidebar อ่อนๆ */
+      box-shadow: none; /* ไม่ใช้เงาใน Sidebar */
+    }
+
+    .category-link {
+      cursor: pointer;
+      display: block;
+      padding: 10px 15px;
+      font-size: 0.8rem;
+      color: #555;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .category-link:hover {
+      background-color: #fff; /* เปลี่ยนเป็นสีขาวตอน Hover */
+      color: #000;
+      padding-left: 20px;
+    }
+
+    /* INPUTS & RANGE */
+    .form-control-sm {
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .form-range::-webkit-slider-thumb {
+      background: #555; /* สีปุ่มเลื่อนราคา */
+    }
+
+    /* CART */
+    .offcanvas {
+      border-radius: 0 !important; /* ตะกร้าเต็มความสูง */
+    }
+
+    .cart-item-img {
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+    }
+
+    .qty-controls {
+      display: flex;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      padding: 0 12px;
+      border: none;
+      background: none;
+      color: #555;
+    }
+
+    .qty-val {
+      padding: 0 10px;
+      font-size: 0.8rem;
+      background: #fff;
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+<nav class="navbar navbar-expand-lg py-2 sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold text-uppercase" href="#">Furnish</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto">
+    <div class="ms-auto d-flex align-items-center">
+      <ul class="navbar-nav d-none d-lg-flex me-4">
         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
         <li class="nav-item"><a class="nav-link active" href="#">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
       </ul>
+      <button class="btn btn-dark position-relative rounded-pill px-3" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+        <i class="bi bi-cart3"></i>
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem !important;">0</span>
+      </button>
     </div>
   </div>
 </nav>
 
-<section class="py-5 bg-light text-center">
+<section class="py-5 bg-white text-center">
   <div class="container">
-    <h1 class="display-4 fw-bold">Products</h1>
-    <p><a href="#" class="text-decoration-none">Home</a> / Products</p>
+    <h1 class="display-3 fw-bold mb-0">Our Collection</h1>
+    <div style="font-size: 0.7rem; letter-spacing: 1px;" class="text-uppercase text-muted mt-2">Home / Products</div>
   </div>
 </section>
 
 <section class="py-5">
   <div class="container">
     <div class="row">
-
       <aside class="col-lg-3 mb-5">
-        <div class="card p-4 shadow-sm border-0">
-          <h5>Search</h5>
-          <input type="text" class="form-control mb-4" placeholder="Search products">
-
-          <h5>Categories</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-decoration-none text-dark">Chair</a></li>
-            <li><a href="#" class="text-decoration-none text-dark">Sofa</a></li>
-            <li><a href="#" class="text-decoration-none text-dark">Lamp</a></li>
-            <li><a href="#" class="text-decoration-none text-dark">Table</a></li>
+        <div class="card p-3 border-0">
+          <h5 class="fw-bold text-uppercase mb-3 mt-2" style="font-size: 0.8rem; letter-spacing: 1px; color: #555;">Search</h5>
+          <input type="text" class="form-control form-control-sm mb-4" placeholder="Keywords..." id="searchInput" onkeyup="searchProducts()">
+          
+          <h5 class="fw-bold text-uppercase mb-2" style="font-size: 0.8rem; letter-spacing: 1px; color: #555;">Categories</h5>
+          <ul class="list-unstyled mb-4">
+            <li><a class="category-link" onclick="filterProducts('All')">All Products</a></li>
+            <li><a class="category-link" onclick="filterProducts('Chair')">Chairs</a></li>
+            <li><a class="category-link" onclick="filterProducts('Sofa')">Sofas</a></li>
+            <li><a class="category-link" onclick="filterProducts('Lamp')">Lamps</a></li>
+            <li><a class="category-link" onclick="filterProducts('Table')">Tables</a></li>
           </ul>
-
-          <h5 class="mt-4">Filter Price</h5>
-          <input type="range" class="form-range">
+          
+          <h5 class="fw-bold text-uppercase mb-3" style="font-size: 0.8rem; letter-spacing: 1px; color: #555;">Price Range</h5>
+          <input type="range" class="form-range mb-2" id="priceRange" min="0" max="1000" step="10" oninput="filterByPrice()">
+          <div class="d-flex justify-content-between mt-1" style="font-size: 0.75rem;">
+             <span>$0</span>
+             <span id="priceValue" class="fw-bold text-dark">$1000</span>
+          </div>
         </div>
       </aside>
 
       <div class="col-lg-9">
-        <div class="row g-4" id="product-container">
-            <div class="col-12 text-center py-5">
-                <div class="spinner-border text-dark" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <p class="mt-2">Loading products...</p>
-            </div>
-        </div>
-
-        <nav class="mt-5">
-          <ul class="pagination justify-content-center border-0">
-            <li class="page-item active"><a class="page-link border-0" href="#">1</a></li>
-            <li class="page-item"><a class="page-link border-0 text-dark" href="#">2</a></li>
-            <li class="page-item"><a class="page-link border-0 text-dark" href="#">3</a></li>
-          </ul>
-        </nav>
+        <div class="row g-4" id="product-container"></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="bg-dark text-white py-5">
+<div class="offcanvas offcanvas-end border-0" tabindex="-1" id="cartSidebar">
+  <div class="offcanvas-header border-bottom py-3">
+    <h5 class="offcanvas-title fw-bold text-uppercase" style="font-size: 0.9rem; letter-spacing: 1px;">Your Bag</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cart-items-list" class="flex-grow-1 overflow-auto">
+      <p class="text-center py-5 text-muted small">YOUR BAG IS EMPTY</p>
+    </div>
+    <div class="pt-3 border-top">
+      <div class="d-flex justify-content-between mb-3 fw-bold">
+        <span class="text-uppercase" style="font-size: 0.8rem;">Total</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn-dark w-100 py-3 rounded-0" onclick="alert('Proceeding to Checkout')">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-white py-5 mt-5">
   <div class="container text-center">
-    <h4 class="fw-bold">Furnish</h4>
-    <p>Email: info@example.com</p>
-    <p class="text-secondary small">© 2026 Furnish. All rights reserved.</p>
+    <h2 class="fw-bold text-uppercase mb-2" style="letter-spacing: 4px; color: #444;">Furnish</h2>
+    <p class="text-muted small mb-0">© 2026 NATURAL MINIMALIST SOLUTIONS.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+let allProducts = []; 
+let cart = [];
+
 async function loadProducts() {
-    const container = document.getElementById('product-container');
-    // แก้ไข Path ให้ดึงจากโฟลเดอร์ public โดยตรง (สำหรับ Vite)
-    const dataSource = 'data/products.json'; 
-
     try {
-        const response = await fetch(dataSource);
-
-        if (!response.ok) {
-            throw new Error(`ไม่สามารถดึงข้อมูลได้ (Status: ${response.status})`);
-        }
-
-        const products = await response.json();
-        container.innerHTML = '';
-
-        if (products.length === 0) {
-            container.innerHTML = '<div class="col-12 text-center py-5">ไม่พบสินค้าในขณะนี้</div>';
-            return;
-        }
-
-        products.forEach(product => {
-            const productCard = `
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <img src="${product.image_url}" class="card-img-top" alt="${product.name}" onerror="this.src='https://via.placeholder.com/250x250?text=No+Image'">
-                        <div class="card-body text-center d-flex flex-column">
-                            <h5 class="fw-bold">${product.name}</h5>
-                            <p class="mt-auto">
-                                ${product.original_price ? `<del class="text-muted small">$${product.original_price}</del>` : ''}
-                                <strong class="text-dark">$${product.price}</strong>
-                            </p>
-                            <button class="btn btn-dark w-100 mt-2" onclick="addToCart(${product.id})">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            container.insertAdjacentHTML('beforeend', productCard);
-        });
-
+        const response = await fetch('data/products.json');
+        allProducts = await response.json();
+        displayProducts(allProducts);
     } catch (error) {
-        console.error('Error:', error);
-        container.innerHTML = `
-            <div class="col-12 text-center py-5">
-                <i class="bi bi-exclamation-triangle text-danger display-4"></i>
-                <p class="text-danger mt-3 fw-bold">เกิดข้อผิดพลาดในการโหลดข้อมูล</p>
-                <p class="small text-muted">กรุณาตรวจสอบว่าไฟล์ public/products.json ถูกต้องและรันด้วยคำสั่ง npm run dev</p>
-            </div>
-        `;
+        document.getElementById('product-container').innerHTML = `<div class="col-12 text-center py-5 small text-danger">Error Loading Products.</div>`;
     }
 }
 
-function addToCart(id) {
-    console.log("เพิ่มสินค้าลงตะกร้า ID:", id);
-    alert("เพิ่มสินค้าลงในตะกร้าเรียบร้อยแล้ว!");
+function displayProducts(items) {
+    const container = document.getElementById('product-container');
+    container.innerHTML = '';
+    if (items.length === 0) {
+        container.innerHTML = '<div class="col-12 text-center py-5 text-muted small">NO RESULTS.</div>';
+        return;
+    }
+    items.forEach(product => {
+        const productCard = `
+            <div class="col-md-4">
+                <div class="card h-100 border-0">
+                    <img src="${product.image_url}" class="card-img-top" alt="${product.name}" onerror="this.src='https://via.placeholder.com/250'">
+                    <div class="card-body text-center d-flex flex-column p-4">
+                        <span style="font-size: 0.65rem; letter-spacing: 1px;" class="text-muted text-uppercase mb-1">${product.category || 'Item'}</span>
+                        <h5 class="fw-bold mb-2">${product.name}</h5>
+                        <div class="mt-auto mb-3 fw-bold text-dark">$${product.price}</div>
+                        <button class="btn btn-dark w-100 rounded-pill" onclick="addToCart(${product.id})">Add to Bag</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', productCard);
+    });
 }
+
+function filterProducts(cat) { 
+    event.preventDefault();
+    cat === 'All' ? displayProducts(allProducts) : displayProducts(allProducts.filter(p => p.category === cat)); 
+}
+
+function searchProducts() {
+    const t = document.getElementById('searchInput').value.toLowerCase();
+    displayProducts(allProducts.filter(p => p.name.toLowerCase().includes(t)));
+}
+
+function filterByPrice() {
+    const m = document.getElementById('priceRange').value;
+    document.getElementById('priceValue').innerText = `$${m}`;
+    displayProducts(allProducts.filter(p => p.price <= m));
+}
+
+function addToCart(id) {
+    const p = allProducts.find(x => x.id === id);
+    const i = cart.find(x => x.id === id);
+    i ? i.quantity++ : cart.push({...p, quantity: 1});
+    updateCartUI();
+    const cartSidebar = new bootstrap.Offcanvas(document.getElementById('cartSidebar'));
+}
+
+function updateCartUI() {
+    const list = document.getElementById('cart-items-list');
+    const badge = document.getElementById('cart-count');
+    const total = document.getElementById('cart-total');
+    if (cart.length === 0) {
+        list.innerHTML = '<p class="text-center py-5 text-muted small">YOUR BAG IS EMPTY</p>';
+        badge.innerText = '0'; total.innerText = '$0.00'; return;
+    }
+    let sum = 0, q = 0;
+    list.innerHTML = cart.map(item => {
+        sum += item.price * item.quantity; q += item.quantity;
+        return `<div class="d-flex align-items-center mb-3 pb-3 border-bottom border-light">
+            <img src="${item.image_url}" class="cart-item-img me-3">
+            <div class="flex-grow-1" style="font-size: 0.75rem;">
+                <span class="fw-bold d-block text-uppercase">${item.name}</span>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                    <span>$${item.price}</span>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQuantity(${item.id}, -1)">-</button>
+                        <span class="qty-val">${item.quantity}</span>
+                        <button class="qty-btn" onclick="changeQuantity(${item.id}, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-sm text-danger ms-2" onclick="removeFromCart(${item.id})"><i class="bi bi-trash"></i></button>
+        </div>`;
+    }).join('');
+    badge.innerText = q; total.innerText = `$${sum.toFixed(2)}`;
+}
+
+function changeQuantity(id, delta) {
+    const i = cart.find(x => x.id === id);
+    if (i) {
+        i.quantity += delta;
+        i.quantity <= 0 ? removeFromCart(id) : updateCartUI();
+    }
+}
+
+function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); }
 
 document.addEventListener('DOMContentLoaded', loadProducts);
 </script>

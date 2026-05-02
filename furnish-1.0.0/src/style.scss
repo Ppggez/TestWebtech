@@ -1,0 +1,85 @@
+/* --- UI/UX ENHANCEMENT BY FULL STACK DEV --- */
+
+/* 1. ปรับปรุง Typography และพื้นหลัง */
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #333;
+    background-color: #f8f9fa; /* สีพื้นหลังให้อ่อนลงเล็กน้อยเพื่อให้ Card เด่นขึ้น */
+}
+
+/* 2. SIDEBAR STYLE (ตามรูป image_a65b5e.png) */
+aside .card {
+    border-radius: 12px !important;
+    background: #ffffff;
+    padding: 1.5rem !important;
+    position: sticky;
+    top: 100px;
+}
+
+.category-link {
+    display: block;
+    padding: 8px 0;
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+}
+
+.category-link:hover {
+    color: #0d6efd; /* สีฟ้าตามสไตล์ All Products ในรูป */
+    padding-left: 8px;
+    background-color: rgba(13, 110, 253, 0.05);
+    border-radius: 4px;
+}
+
+/* 3. PRODUCT CARD IMPROVEMENT */
+#product-container .card {
+    border-radius: 15px !important;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    background: #fff;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.08); /* Zoom effect เวลา hover */
+}
+
+/* 4. BUTTON & BADGE CUSTOMIZATION */
+.btn-dark {
+    padding: 10px 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#cart-count {
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+}
+
+/* 5. SEARCH INPUT STYLING */
+#searchInput {
+    border: 1px solid #eee !important;
+    border-radius: 8px !important;
+    padding: 10px 15px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    outline: none;
+}

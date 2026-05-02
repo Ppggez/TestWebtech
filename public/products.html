@@ -1,0 +1,237 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furnish - Natural Minimalist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+      /* SOFT & NATURAL STYLE */
+      * { border-radius: 8px; font-size: 0.94rem; border: none !important; }
+      body { color: #333; background-color: #fcfcfc; }
+      .navbar { background-color: #ffffff; box-shadow: 0 2px 15px rgba(0,0,0,0.05); border-radius: 0 !important; }
+      .navbar-brand { font-size: 1.2rem !important; letter-spacing: 2px; color: #444 !important; }
+      .nav-link { font-size: 0.8rem !important; letter-spacing: 1px; text-transform: uppercase; color: #666 !important; transition: 0.3s; cursor: pointer; }
+      .nav-link:hover, .nav-link.active { color: #000 !important; background-color: #f0f0f0; }
+      
+      /* HERO SECTION (HOME) */
+      .hero { height: 75vh; background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070') center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; border-radius: 0 !important; }
+      .hero h1 { font-size: 3.5rem; font-weight: bold; }
+      .btn-shop { background: #fff; color: #333; padding: 15px 35px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+      .btn-shop:hover { background: #333; color: #fff; }
+
+      /* CATALOG STYLE */
+      .card { background-color: #fff; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+      .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+      .card-img-top { height: 220px; object-fit: cover; border-radius: 8px 8px 0 0 !important; }
+      .btn-dark { background-color: #333; font-size: 0.75rem !important; letter-spacing: 1px; }
+      .offcanvas { border-radius: 0 !important; }
+      .cart-item-img { width: 55px; height: 55px; object-fit: cover; }
+      .qty-controls { display: flex; background: #f0f0f0; overflow: hidden; }
+      .qty-btn { padding: 0 12px; border: none; background: none; color: #555; }
+      .qty-val { padding: 0 10px; font-size: 0.8rem; background: #fff; }
+    </style>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg py-2 sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-uppercase" onclick="showPage('home')">Furnish</a>
+      <div class="ms-auto d-flex align-items-center">
+        <ul class="navbar-nav d-none d-lg-flex me-4">
+          <li class="nav-item"><a class="nav-link" id="nav-home" onclick="showPage('home')">Home</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-products" onclick="showPage('products')">Products</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-about" onclick="showPage('about')">About</a></li>
+        </ul>
+        <button class="btn btn-dark position-relative rounded-pill px-3" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+          <i class="bi bi-cart3"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem !important;">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE: HOME -->
+  <div id="page-home">
+    <header class="hero">
+      <div>
+        <h1 class="display-2 mb-3">Simply Elegant</h1>
+        <p class="mb-5 opacity-75">Crafting minimalist furniture for your modern sanctuary.</p>
+        <a onclick="showPage('products')" class="btn-shop">Explore Collection</a>
+      </div>
+    </header>
+    <section class="py-5 text-center container">
+      <div class="row g-4 py-5">
+        <div class="col-md-4"><i class="bi bi-box-seam fs-1"></i><h5 class="mt-3 fw-bold">Eco Packaging</h5><p class="text-muted small">100% biodegradable materials.</p></div>
+        <div class="col-md-4"><i class="bi bi-truck fs-1"></i><h5 class="mt-3 fw-bold">Free Delivery</h5><p class="text-muted small">On orders over $500.</p></div>
+        <div class="col-md-4"><i class="bi bi-shield-check fs-1"></i><h5 class="mt-3 fw-bold">2 Year Warranty</h5><p class="text-muted small">Quality guaranteed.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE: PRODUCTS -->
+  <div id="page-products" style="display:none;">
+    <section class="py-5 bg-white text-center">
+      <div class="container">
+        <h1 class="display-3 fw-bold mb-0">Our Collection</h1>
+        <div style="font-size: 0.7rem; letter-spacing: 1px;" class="text-uppercase text-muted mt-2">Browse / Products</div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <aside class="col-lg-3 mb-5">
+            <div class="card p-3 border-0">
+              <h5 class="fw-bold text-uppercase mb-3 mt-2" style="font-size: 0.8rem; color: #555;">Search</h5>
+              <input type="text" class="form-control form-control-sm mb-4" placeholder="Keywords..." id="searchInput" onkeyup="searchProducts()">
+              <h5 class="fw-bold text-uppercase mb-2" style="font-size: 0.8rem; color: #555;">Categories</h5>
+              <ul class="list-unstyled mb-4">
+                <li><a class="category-link" onclick="filterProducts('All')">All Products</a></li>
+                <li><a class="category-link" onclick="filterProducts('Chair')">Chairs</a></li>
+                <li><a class="category-link" onclick="filterProducts('Sofa')">Sofas</a></li>
+                <li><a class="category-link" onclick="filterProducts('Lamp')">Lamps</a></li>
+              </ul>
+            </div>
+          </aside>
+          <div class="col-lg-9">
+            <div class="row g-4" id="product-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="cartSidebar">
+    <div class="offcanvas-header border-bottom py-3">
+      <h5 class="offcanvas-title fw-bold text-uppercase" style="font-size: 0.9rem;">Your Bag</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cart-items-list" class="flex-grow-1 overflow-auto"><p class="text-center py-5 text-muted small">YOUR BAG IS EMPTY</p></div>
+      <div class="pt-3 border-top">
+        <div class="d-flex justify-content-between mb-3 fw-bold"><span class="text-uppercase" style="font-size: 0.8rem;">Total</span><span id="cart-total">$0.00</span></div>
+        <button class="btn btn-dark w-100 py-3 rounded-0" onclick="alert('Checkout Processed!')">CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-white py-5 text-center mt-5">
+    <div class="container">
+      <h2 class="fw-bold text-uppercase mb-2" style="letter-spacing: 4px; color: #444;">Furnish</h2>
+      <p class="text-muted small mb-0">© 2026 NATURAL MINIMALIST SOLUTIONS.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  let allProducts = []; 
+  let cart = [];
+
+  function showPage(pageId) {
+      document.getElementById('page-home').style.display = pageId === 'home' ? 'block' : 'none';
+      document.getElementById('page-products').style.display = pageId === 'products' ? 'block' : 'none';
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      document.getElementById(`nav-${pageId}`)?.classList.add('active');
+      window.scrollTo(0, 0);
+  }
+
+  const catalog = document.getElementById('product-container');
+
+  async function loadProducts() {
+      try {
+          const response = await fetch('data/products.json');
+          allProducts = await response.json();
+          displayProducts(allProducts);
+      } catch (error) {
+          catalog.innerHTML = `<div class="col-12 text-center py-5 text-danger">Error Loading Products.</div>`;
+      }
+  }
+
+  function displayProducts(items) {
+    catalog.innerHTML = items.length === 0 ? '<div class="col-12 text-center py-5 text-muted small">NO RESULTS.</div>' : '';
+    items.forEach(product => {
+        catalog.insertAdjacentHTML('beforeend', `
+            <div class="col-md-4">
+                <div class="card h-100 border-0">
+                    <!-- แก้ตรงนี้จาก product.image_url เป็น product.image -->
+                    <img src="${product.image}" class="card-img-top" onerror="this.src='https://via.placeholder.com/250'">
+                    <div class="card-body text-center d-flex flex-column p-4">
+                        <span style="font-size: 0.65rem;" class="text-muted text-uppercase mb-1">${product.category || 'Item'}</span>
+                        <h5 class="fw-bold mb-2">${product.name}</h5>
+                        <div class="mt-auto mb-3 fw-bold text-dark">$${product.price}</div>
+                        <button class="btn btn-dark w-100 rounded-pill add-to-cart" data-id="${product.id}">Add to Bag</button>
+                    </div>
+                </div>
+            </div>
+        `);
+    });
+}
+
+  catalog.addEventListener('click', (e) => {
+      const btn = e.target.closest('.add-to-cart');
+      if (btn) addToCart(parseInt(btn.getAttribute('data-id')));
+  });
+
+  function addToCart(id) {
+      const p = allProducts.find(x => x.id === id);
+      const i = cart.find(x => x.id === id);
+      i ? i.quantity++ : cart.push({...p, quantity: 1});
+      updateCartUI();
+      // บรรทัดที่สั่งเด้งตะกร้าถูกนำออกแล้วครับ
+  }
+
+  function updateCartUI() {
+      const list = document.getElementById('cart-items-list');
+      const badge = document.getElementById('cart-count');
+      const total = document.getElementById('cart-total');
+      
+      if (cart.length === 0) {
+          list.innerHTML = '<p class="text-center py-5 text-muted small">YOUR BAG IS EMPTY</p>';
+          badge.innerText = '0'; total.innerText = '$0.00'; return;
+      }
+      
+      let sum = 0, q = 0;
+      list.innerHTML = cart.map(item => {
+          sum += item.price * item.quantity; q += item.quantity;
+          return `
+          <div class="d-flex align-items-center mb-3 pb-3 border-bottom border-light">
+              <img src="${item.image_url}" class="cart-item-img me-3">
+              <div class="flex-grow-1" style="font-size: 0.75rem;">
+                  <span class="fw-bold d-block text-uppercase">${item.name}</span>
+                  <div class="d-flex justify-content-between align-items-center mt-1">
+                      <span>$${item.price}</span>
+                      <div class="qty-controls">
+                          <button class="qty-btn" onclick="changeQuantity(${item.id}, -1)">-</button>
+                          <span class="qty-val">${item.quantity}</span>
+                          <button class="qty-btn" onclick="changeQuantity(${item.id}, 1)">+</button>
+                      </div>
+                  </div>
+              </div>
+              <button class="btn btn-sm text-danger ms-2" onclick="removeFromCart(${item.id})"><i class="bi bi-trash"></i></button>
+          </div>`;
+      }).join('');
+      badge.innerText = q; total.innerText = `$${sum.toFixed(2)}`;
+  }
+
+  function changeQuantity(id, d) {
+      const i = cart.find(x => x.id === id);
+      if (i) { i.quantity += d; i.quantity <= 0 ? removeFromCart(id) : updateCartUI(); }
+  }
+
+  function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); }
+
+  function filterProducts(c) { displayProducts(c === 'All' ? allProducts : allProducts.filter(p => p.category === c)); }
+  function searchProducts() { const t = document.getElementById('searchInput').value.toLowerCase(); displayProducts(allProducts.filter(p => p.name.toLowerCase().includes(t))); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      loadProducts();
+      showPage('home');
+  });
+  </script>
+  </body>
+  </html>
